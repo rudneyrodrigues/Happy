@@ -62,7 +62,30 @@ function removePhotoField(event) {
 
   const fieldsContainer = document.querySelectorAll('.new-upload')
 
-  if (fieldsContainer.length < 1) {
+  if (fieldsContainer.length <= 1) {
+    //Limpar o valor do campo
+    span.parentNode.children[0].value = ""
     return
   }
+
+  //Deletar o campo
+  span.parentNode.remove()
+}
+
+//Selecionar sim ou não
+function toggleSelect(event) {
+  //Retirar a classe .active (dos botões)
+  document.querySelectorAll('.button-select button')
+  .forEach((button) => {
+    button.classList.remove('active')
+  })
+
+  //Colocar a classe .active no botão clicado
+  const button = event.currentTarget
+  button.classList.add('active')
+
+  //Atualizar o input hidden com o valor selecionado
+  const input = document.querySelector('[name="open_on_weekends"]')
+  
+  input.value = button.dataset.value
 }
