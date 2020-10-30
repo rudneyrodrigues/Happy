@@ -89,3 +89,13 @@ function toggleSelect(event) {
   
   input.value = button.dataset.value
 }
+
+function validate(event) {
+  const lat = document.querySelector('#lat').value
+  const lng = document.querySelector('#lng').value
+
+  if (lat == '' && lng == '') {
+    event.preventDefault()
+    alert('Selecione um local no mapa')
+  }
+}
